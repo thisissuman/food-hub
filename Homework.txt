@@ -1,0 +1,121 @@
+CHAPTER-1
+Q 1.	What is Emmet?
+Emmet is a toolkit that helps developers to write down large code blocks in HTML in a few lines using emmet shortcuts. Emmet shortcuts help us in writing large HTML code blocks in a few seconds by just writing a few lines of code. Emmet can be used to expand CSS rules in HTML.
+Q 2.	What is Library and Framework?
+•	They key difference between library and framework is the inversion of control
+•	In framework the flow is already defined, where the framework is in charge of control, we just have to fill up the skeleton provided by the framework.
+•	In Library we are in charge of control. We can put and modify as per our convenient.
+•	There are can be libraries in framework, but vice versa is not possible. 
+
+Q 3.	What is CDN ? how doesit work ?
+A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are. Data centers across the globe use caching, a process that temporarily stores copies of files, so that you can access internet content from a web-enabled device or browser more quickly through a server near you. CDNs cache content like web pages, images, and video in proxy servers near to your physical location. This allows you to do things like watch a movie, download software, check your bank balance, post on social media, or make purchases, without having to wait for content to load.
+Q 4.	Why React called react ?
+React is called "React" because of its core feature, which is its ability to "react" or respond dynamically to changes in data. React was originally created by Facebook in 2011 for use in their own web applications, and it was released as an open-source project in 2013.
+Q 5.	What is crossorigin ?
+Crossorigin is an attribute that can be added to a script tag in HTML to specify the origin of the script, which determines where the script can be loaded from.
+
+The crossorigin attribute is used to enable cross-origin resource sharing (CORS) for scripts. CORS is a mechanism that allows web pages to request resources from a different domain than the one the page was loaded from. This is useful when a web page needs to access resources, such as APIs or scripts, that are hosted on a different domain.
+Q 6.	What is the difference between the React and ReactDOM
+React is a library for building UI components and managing their state and lifecycle, while ReactDOM is a library that interfaces with the actual DOM and renders React components to it.
+React provides a virtual DOM, while ReactDOM provides the actual DOM.
+React is concerned with the components' state and lifecycle, while ReactDOM is concerned with rendering and updating the DOM.
+
+Q 7.	What is difference between react.development.js and react.production.js files via CDN?
+react.development.js is the development version of the React library, which is not minified or optimized for production use. It includes warnings and debug statements that are useful for development and testing purposes, but it is not intended for use in production environments. 
+
+On the other hand, react.production.js is the production version of the React library, which is minified and optimized for production use. It does not include any warnings or debug statements, and it is designed to provide the best possible performance in a production environment. This file is typically used in live environments, where performance and load times are critical.
+
+Q 8.	What is async and defer.
+async
+The async attribute specifies that the script should be executed asynchronously.
+This means that the script will download in parallel to HTML parsing and execution, and execute as soon as it is available.
+async scripts do not block the parsing of HTML.
+defer
+The defer attribute specifies that the script should be executed after the entire HTML document has been parsed.
+defer scripts wait for the HTML parsing to finish, and then execute in the order they appeared in the HTML.
+defer scripts block the rendering of HTML, but not HTML parsing.
+
+
+CHAPTER-2
+-=------=-
+1. What is NPM ?
+NPM stands for Node package manageer, its a software package manager for the javascript programming language, 
+* initially created for node.js application. NPM allows developers to easily build,share code written in javascript.NPM provide a command line interface that allow Developer to interact with npm registry,edit or remove from their project. 
+* Every node.js project using npm registry contains package.json, this file list's projects's meta data, dependecies, and other informations. 
+
+2. What are webpack/parcel.
+
+* Webpack and parcel are popular bundlers for javascript application, these are the tool used to manage and bundle the various assests of applications such as files, css file, dependencies in such format which can be efficiently served to the browser. 
+* the main purpose of the bundlers to optimise the performance of the organization of the codebase.
+* They handle complex tasks related to asset management, code organization, and optimization, allowing developers to focus on building great web experiences for users.
+
+3.what is parcel_cache
+
+* The .parcel-cache directory is a folder automatically created by the Parcel bundler during the build process. It is used to cache various assets and intermediate build artifacts, which helps speed up the build process for subsequent runs. The cache directory is generally located at the root of your project.\
+
+* When you run the Parcel bundler, it performs various tasks such as parsing and transforming files, bundling assets, and generating the final output. These tasks can be time-consuming, especially for large projects with many dependencies and assets. To avoid redoing these tasks every time you run the build, Parcel uses the .parcel-cache directory to store previously processed data.
+
+4. What is npx
+
+npx is a command-line tool that comes bundled with npm (Node Package Manager) version 5.2.0 and later. It stands for "Node Package Runner" and is used to execute Node.js packages or binaries directly from the command line, without the need to install them globally on your system.
+
+6.Waht dependecy and devdependency ?
+* dependency: The dependencies section in the package.json file is used to specify the packages that are required for the production runtime of the application. These packages are essential for the application to function correctly in a live environment. 
+
+* devdependency: The devDependencies section in the package.json file is used to specify packages that are only needed during development and testing of the application. These packages are not required for the production runtime of the application. When you install a Node.js project with the --production flag (e.g., npm install --production), the packages listed under devDependencies will be excluded.
+
+7. What is tree shaking ?
+
+* In production builds, Parcel statically analyzes the imports and exports of each module, and removes everything that isn't used. This is called "tree shaking" or "dead code elimination". Tree shaking is supported for both static and dynamic import(), CommonJS and ES modules, and even across languages with CSS modules.
+
+8. waht is HMR(Hot module replacement)
+* HMR stands for "Hot Module Replacement," and it is a feature in the Parcel bundler (and other bundlers like Webpack) that allows developers to see changes instantly in the browser without manually refreshing the page during the development process.
+
+9. List down top 5 super power of parcel
+
+Zero Configuration: Parcel requires minimal to no configuration, making it easy for developers to get started quickly without the need to set up complex build pipelines or configuration files. It automatically handles most tasks, including transpilation, minification, and code splitting.
+
+Blazing Fast Development Server: Parcel includes a fast development server with hot module replacement (HMR) support. The development server allows developers to see changes instantly in the browser without the need for manual page refreshes, making the development process faster and more efficient.
+
+Built-in Support for Various Asset Types: Parcel supports a wide range of asset types out of the box, including JavaScript, CSS, HTML, images, fonts, and more. This makes it a versatile bundler that can handle different types of projects without the need for additional configuration.
+
+Optimized Production Builds: In addition to speeding up development, Parcel generates optimized production builds. It automatically applies minification, compression, and other optimizations to produce optimized and efficient output for production use.
+
+Efficient Code Splitting: Parcel automatically performs code splitting, breaking the bundled code into smaller chunks. This feature improves application loading times by loading only the code needed for the current page, reducing the initial loading time.
+
+10.What is `.gitignore`? What should we add and not add into it?
+.gitignore is a special file in a Git repository that specifies which files and directories should be ignored and not tracked by Git. When you add files to the .gitignore file, Git will not include them in the version control system, and they will not be committed or pushed to the repository.
+
+The .gitignore file is essential for excluding files and directories that are either generated during the development process or contain sensitive information that should not be shared publicly.
+
+11.What is the difference between `package.json` and `package-lock.json`
+package.json : Purpose: package.json is a metadata file for a Node.js project. It contains information about the project, such as its name, version, description, entry points, dependencies, devDependencies, scripts, and more.
+
+Role: The package.json file is used to define and manage the project's dependencies and other metadata. It is essential for understanding the project's structure, configuration, and dependencies.
+
+package-lock.json: Purpose: package-lock.json is a lockfile automatically generated by npm when you run npm install or npm ci. It locks the version of each installed dependency to ensure that subsequent installations use the exact same versions.
+
+Role: The package-lock.json file is used to provide a deterministic and consistent dependency tree by fixing the versions of all installed dependencies.
+
+Content: It contains a detailed list of all installed packages, their resolved versions, and their dependencies, including nested dependencies.
+
+Locking Versions: The package-lock.json file helps prevent unintended changes in dependency versions across different environments, ensuring that the project is built and tested with the same versions of dependencies
+
+12.why we should not modify package-lock.json 
+Version Consistency: The primary purpose of the package-lock.json file is to provide a consistent and deterministic set of dependencies for your project. It ensures that everyone working on the project, or deploying it to different environments, uses the same exact versions of packages. If you modify the package-lock.json file manually, you risk breaking this version consistency and potentially introducing dependency conflicts or unexpected behavior.
+
+Automatic Generation: The package-lock.json file is automatically generated by npm (or yarn) based on the dependencies and versions specified in the package.json file. Manually modifying it defeats the purpose of having an automatically generated lockfile that ensures dependency versions are controlled.
+
+13.What is `node_modules` ? Is it a good idea to push that on git?
+node_modules is a directory that is created in a Node.js project when you use npm (Node Package Manager) to install dependencies. It is where npm stores all the packages (i.e., external libraries or modules) required by your project. The node_modules directory contains all the installed packages and their nested dependencies, allowing your Node.js application to use the functionality provided by these packages.
+
+Should you push node_modules to Git?
+
+No, it is generally not a good idea to push the node_modules directory to Git. There are several reasons for this:
+14.What is the `dist` folder?
+In Parcel, the dist folder is a conventional name used to store the output or distribution files generated during the build process. The term "dist" stands for "distribution," and it typically contains the final version of your web application or project, optimized and ready for deployment.
+15.What is `browserlists`
+
+In Parcel, the browserslist configuration is used to determine the target browsers and their versions for which your application needs to be optimized and made compatible. Parcel uses browserslist to apply relevant transformations and polyfills during the build process, ensuring that the final output works consistently across the specified browsers.
+16.Read about: ^ - caret and ~ - tilda
+17.Read about Script types in html (MDN Docs)

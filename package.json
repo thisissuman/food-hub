@@ -1,0 +1,26 @@
+{
+  "name": "chapter-1",
+  "version": "1.0.0",
+  "description": "This is my react",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thisissuman/namaste-react-31july.git"
+  },
+  "author": "Suman kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thisissuman/namaste-react-31july/issues"
+  },
+  "homepage": "https://github.com/thisissuman/namaste-react-31july#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
