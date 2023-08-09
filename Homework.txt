@@ -119,3 +119,47 @@ In Parcel, the dist folder is a conventional name used to store the output or di
 In Parcel, the browserslist configuration is used to determine the target browsers and their versions for which your application needs to be optimized and made compatible. Parcel uses browserslist to apply relevant transformations and polyfills during the build process, ensuring that the final output works consistently across the specified browsers.
 16.Read about: ^ - caret and ~ - tilda
 17.Read about Script types in html (MDN Docs)
+
+
+CHAPTER-3
+-=------=-
+1. What is JSX ?
+JSX stands for "JavaScript XML." It is a syntax extension for JavaScript that allows developers to write HTML-like code within their JavaScript code. JSX is most commonly associated with the React library, which is used for building user interfaces in web applications.
+
+With JSX, developers can define the structure and content of user interfaces using a syntax that closely resembles HTML, making it easier to visualize and work with the component hierarchy. JSX code is eventually transpiled (converted) into regular JavaScript code by tools like Babel, which the browser can understand and render.
+
+2.Superpower of JSX ?
+
+Declarative UI: JSX allows developers to express UI components in a more declarative manner, making it easier to understand the structure and hierarchy of the user interface. This leads to code that is more readable and maintainable.
+
+Component Composition: JSX makes it straightforward to compose complex UI components by nesting JSX elements within each other. This mirrors the structure of the UI and promotes a modular approach to building interfaces.
+
+JavaScript Integration: JSX allows the embedding of JavaScript expressions within curly braces {}. This enables dynamic content rendering, data manipulation, and conditional rendering, seamlessly combining UI with logic.
+
+Familiarity: Developers who are already familiar with HTML find it easier to adopt JSX because the syntax is similar. This reduces the learning curve when transitioning from traditional web development to building UI components with JSX and React.
+
+Tooling and Optimization: JSX can be optimized during the build process. Tools like Babel can compile JSX into optimized JavaScript code, and certain optimizations can be applied to improve rendering performance.
+
+IDE Support: Many integrated development environments (IDEs) and code editors provide support for JSX, including syntax highlighting, autocompletion, and error checking, which enhances the development experience.
+
+Type Safety: In combination with TypeScript or Flow, JSX can provide enhanced type safety, allowing developers to catch type-related errors during development and providing better code quality.
+
+Virtual DOM: JSX is a core component of how React manages its Virtual DOM. React uses JSX elements to create a lightweight representation of the actual DOM, allowing efficient updates and rendering optimizations.
+
+Community Adoption: JSX is widely used in the React community, which means there is a large pool of resources, tutorials, and libraries available to help developers build rich and interactive user interfaces.
+
+Custom Components: JSX allows you to define your own custom components, encapsulating UI logic and promoting reusability. This aligns with modern software engineering principles and design patterns.
+
+
+3.Role of type attribute in script tag, what option can we use here ?
+
+In modern web development, especially when working with modern JavaScript features and libraries, the type attribute is often omitted for simplicity, and the browser assumes JavaScript by default. When using JavaScript modules, the type="module" attribute is used to explicitly indicate that the script is a module.
+
+
+4.difference between {TitileComponent},  <TitileComponent/> and <TitileComponent><TitileComponent/>
+
+{TitleComponent}: Inserts the content of a JavaScript variable (TitleComponent) into JSX.
+
+<TitleComponent/>: Renders an instance of the TitleComponent React component without nested content.
+
+<TitleComponent><TitleComponent/></TitleComponent>: Creates a nested structure where an instance of TitleComponent is placed inside another instance of TitleComponent.
