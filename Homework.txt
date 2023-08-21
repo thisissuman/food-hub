@@ -163,3 +163,43 @@ In modern web development, especially when working with modern JavaScript featur
 <TitleComponent/>: Renders an instance of the TitleComponent React component without nested content.
 
 <TitleComponent><TitleComponent/></TitleComponent>: Creates a nested structure where an instance of TitleComponent is placed inside another instance of TitleComponent.
+
+CHAPTER-4
+-=------=-
+1.Is JSX mandatory for React?
+JSX (JavaScript XML) is not mandatory for writing React applications, but it is highly recommended and widely used. JSX is a syntax extension that allows you to write HTML-like code within your JavaScript files. It makes your code more readable and expressive when creating React components. However, JSX gets transpiled into regular JavaScript before being executed by the browser or Node.js, so you can write React components using plain JavaScript if you prefer.
+
+2.Is ES6 mandatory for React?
+ES6 (ECMAScript 2015) is not mandatory for writing React applications, but it is highly beneficial and commonly used. ES6 introduced many new features and enhancements to JavaScript, making the code more concise and readable. Features like arrow functions, template literals, classes, and destructuring can greatly improve your React coding experience. However, React can be written using older versions of JavaScript as well.
+
+3.How can I write comments in JSX?
+In JSX, you can write comments using curly braces and a /* ... */ syntax. For example:
+
+jsx
+Copy code
+{/* This is a JSX comment */}
+These comments will not appear in the rendered output since they are part of the JavaScript code and are removed during the compilation process.
+
+4.What is react.Fragment (<>...</>)
+React.Fragment, often written using the shorthand <>...</>, is a component provided by React that allows you to group multiple elements without introducing an extra DOM element. This is useful when you want to return multiple elements from a component's render method without wrapping them in a unnecessary div or other container element. It helps keep the DOM structure cleaner and avoids adding extra nodes.
+
+5.What is Virtual DOM?
+The Virtual DOM is a concept in React that represents a lightweight, virtual representation of the actual DOM (Document Object Model). It is a way to improve performance by reducing the number of direct manipulations to the actual DOM, which can be slow and resource-intensive. React uses the Virtual DOM to efficiently update only the parts of the actual DOM that have changed, making the process of updating UI more efficient and responsive.
+
+6.What is Reconciliation in React?
+Reconciliation in React refers to the process of comparing the Virtual DOM with the previous version of the Virtual DOM and determining the minimum number of changes needed to update the actual DOM to reflect the new state of the application. This process ensures that only the necessary changes are made to the DOM, optimizing performance and minimizing the impact on the user interface.
+
+7.What is React Fiber?
+React Fiber is an ongoing project by the React team to rewrite the core algorithm of React's reconciliation and rendering process. It aims to provide better rendering performance and improved user experience. The primary goal of React Fiber is to enable more granular control over rendering priorities and better handling of concurrent updates, making React more efficient and responsive, especially in complex applications.
+
+8.Why and when do we need keys in React?
+Keys in React are used to uniquely identify and differentiate between sibling elements or components rendered in a list. They help React's reconciliation process correctly update and reorder elements efficiently. When elements are added, removed, or reordered in a list, React uses keys to determine which elements have changed. Using keys is especially important when rendering dynamic lists with data from sources like arrays or API responses.
+
+9.Can we use index as keys in React?
+Using array indices as keys in React should be done with caution and only when you're confident that the order of the items in the list will not change. If items are added, removed, or reordered, using array indices as keys can lead to unexpected behavior, incorrect rendering, and poor performance. It's generally better to use unique and stable identifiers as keys, such as database IDs or unique properties of the data.
+
+10.What are props in React?
+Props (short for properties) are a way to pass data from a parent component to a child component in React. They are read-only and provide a mechanism for components to communicate and share information. Props allow you to customize the behavior and appearance of a component by passing values to it when it's rendered. Props are defined as attributes on the JSX element and are accessed within the child component through the props object.
+
+11.What is Config-Driven UI?
+Config-Driven UI (User Interface) refers to an approach where the configuration or settings of a user interface are separated from the code that implements the UI functionality. Instead of hardcoding UI elements and behavior, you define the structure, layout, and behavior of the UI through configuration files or data. This approach allows for greater flexibility, easier customization, and the ability to modify the UI without changing the underlying code. It's often used to build dynamic and customizable interfaces in applications.
