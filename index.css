@@ -42,3 +42,9 @@
     gap: 10px;
     flex-wrap: wrap;
 }
+.search-container  {
+  color: white;
+}
+.search-container > input {
+  color: white;
+}

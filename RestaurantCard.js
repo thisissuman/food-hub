@@ -1,5 +1,5 @@
 const RestaurantCard = ({ cloudinaryImageId, avgRating, cuisines, name }) => {
-    console.log(name);
+    
     return (
       <div className="card">
         <img

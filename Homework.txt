@@ -203,3 +203,23 @@ Props (short for properties) are a way to pass data from a parent component to a
 
 11.What is Config-Driven UI?
 Config-Driven UI (User Interface) refers to an approach where the configuration or settings of a user interface are separated from the code that implements the UI functionality. Instead of hardcoding UI elements and behavior, you define the structure, layout, and behavior of the UI through configuration files or data. This approach allows for greater flexibility, easier customization, and the ability to modify the UI without changing the underlying code. It's often used to build dynamic and customizable interfaces in applications.
+
+
+CHAPTER-5
+-=------=-
+1. What is the difference between named export,default and * as export ?
+Named Export: When you want to export multiple values from a module, you use named exports. You explicitly specify the names of the variables, functions, or classes you want to export, and then you import them by using those exact names.
+Default Export: This is used to export a single value from a module as the default export. When importing, you can use any name you want for the imported value.
+* (Wildcard) Export: This is a way to export all values from a module and import them using a single object. It's usually used when you want to import everything from a module.
+
+2.What is the importance of config.js file?
+In React applications, there is no standardized concept of a "constant.js" file. However, a file named "constants.js" is often used to store constant values that are used throughout the application. These constants can include configuration settings, API URLs, action types for Redux (if used), and other values that remain consistent across different parts of the application.
+
+3. what is react hook ?
+React Hooks are functions that allow you to "hook into" React state and lifecycle features from functional components, which were previously only available in class components. They were introduced in React 16.8 to provide a more concise and readable way of managing state and side effects in functional components. Hooks enhance code reusability and make it easier to understand component behavior.
+
+
+4. What is useState hook?
+useState is one of the most commonly used React Hooks. It allows functional components to manage and update their internal state. With useState, you can add state to your components without converting them into class components.
+
+The useState hook returns an array with two elements: the current state value and a function to update that state. The function returned by useState is used to modify the state, and React will automatically re-render the component when the state changes.
