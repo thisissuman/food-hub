@@ -1,25 +1,65 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "./constant";
-
-const filteredData = (input,filterdata) => {
-  const data = filterdata.filter(restaurant => {
-    return restaurant.info.name === input;
-  })
+import Shimmer from "./shimmer";
+import CircularIndeterminate from "./shimmer";
+const filteredData = (input, filterdata) => {
+  
+  const data = filterdata.filter((restaurant) => {
+    
+    return restaurant.info.name.toLowerCase().includes(input);
+  });
   return data;
 };
 
-
-
-
-
-
 const Body = () => {
-  const [restaurantconst, setrestaurantconst] = useState(restaurantList)
+  const [filterrestaurantconst, setFilterrestaurantconst] = useState([]);
+  const [allrestaurantinitial, setAllrestauranrestaurantinitial] = useState([]);
   const [input, setinput] = useState("");
-  
-  console.log(filteredData(input, restaurantconst));  
-  return (
+
+  // it will call the fetch api after 1 render.
+  useEffect(() => {
+    setAllrestauranrestaurantinitial(restaurantList);
+    setFilterrestaurantconst(restaurantList);
+  }, []);
+
+  /*   async function getRestroapi() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.3274946&lng=84.8802444&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const response = await data.json();
+    console.log(response.data);
+    // setrestaurantconst(response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle.restaurants);
+  } */
+  console.log("render" + filterrestaurantconst.length);
+
+  if (filterrestaurantconst.length === 0) {
+    return (
+      <div>
+        {" "}
+        <div className="search-container">
+          <input
+            type="text"
+            onChange={(e) => setinput(e.target.value)}
+            value={input}
+          />
+          <button
+            className="search-button"
+            onClick={() => {
+              const data = filteredData(input, allrestaurantinitial);
+              setFilterrestaurantconst(data);
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <h2>No restaruanbt found</h2>
+      </div>
+    );
+  }
+  return filterrestaurantconst.length === 0 ? (
+    <CircularIndeterminate />
+  ) : (
     <>
       <div className="search-container">
         <input
@@ -27,27 +67,26 @@ const Body = () => {
           onChange={(e) => setinput(e.target.value)}
           value={input}
         />
-        <label htmlFor="">{input}</label>
+        <button
+          className="search-button"
+          onClick={() => {
+            const data = filteredData(input, allrestaurantinitial);
+            setFilterrestaurantconst(data);
+          }}
+        >
+          Search
+        </button>
       </div>
-      <button
-        className="search-button"
-        onClick={() => {
-          const data = filteredData(input, restaurantconst);
-          setrestaurantconst(data); 
-        }}
-      >
-        Search
-      </button>
       <div className="body">
-        {restaurantconst.map((restaurant) => (
+        {filterrestaurantconst.map((restaurant) => (
           <RestaurantCard
             key={restaurant.info.id}
             {...restaurant.info}
             /* key={restaurant.info.id}
-            name={restaurant.info.name}
-            cuisines={restaurant.info.cuisines}
-            avgRating={restaurant.info.avgRating}
-            cloudinaryImageId={restaurant.info.cloudinaryImageId} */
+              name={restaurant.info.name}
+              cuisines={restaurant.info.cuisines}
+              avgRating={restaurant.info.avgRating}
+              cloudinaryImageId={restaurant.info.cloudinaryImageId} */
           />
         ))}
       </div>
