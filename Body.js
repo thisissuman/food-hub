@@ -36,7 +36,6 @@ const Body = () => {
   if (filterrestaurantconst.length === 0) {
     return (
       <div>
-        {" "}
         <div className="search-container">
           <input
             type="text"

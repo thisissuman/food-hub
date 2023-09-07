@@ -4,6 +4,9 @@ import Body from "./Body";
 import Header from "./Header";
 import Footer from "./Footer";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import About from "./About";
+import Contact from "./Contanct";
 
 const AppLayout = () => {
   return (
@@ -15,5 +18,20 @@ const AppLayout = () => {
   );
 };
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />); // this render method takes an element and injected in root
+root.render(<RouterProvider router={appRouter} />); // this render method takes an element and injected in root
