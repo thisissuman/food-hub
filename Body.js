@@ -3,11 +3,10 @@ import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "./constant";
 import Shimmer from "./shimmer";
 import CircularIndeterminate from "./shimmer";
+import { Link } from "react-router-dom";
 const filteredData = (input, filterdata) => {
-  
   const data = filterdata.filter((restaurant) => {
-    
-    return restaurant.info.name.toLowerCase().includes(input);
+    return restaurant.info.name.toLowerCase().includes(input).toLowerCase();
   });
   return data;
 };
@@ -32,7 +31,7 @@ const Body = () => {
     // setrestaurantconst(response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle.restaurants);
   } */
   console.log("render" + filterrestaurantconst.length);
-
+  console.log(filterrestaurantconst);
   if (filterrestaurantconst.length === 0) {
     return (
       <div>
@@ -78,15 +77,18 @@ const Body = () => {
       </div>
       <div className="body">
         {filterrestaurantconst.map((restaurant) => (
-          <RestaurantCard
-            key={restaurant.info.id}
-            {...restaurant.info}
-            /* key={restaurant.info.id}
+          <Link to={"/restarurant/"+restaurant.info.id} key={restaurant.info.id}>
+            <RestaurantCard
+              
+              {...restaurant.info}
+
+              /* key={restaurant.info.id}
               name={restaurant.info.name}
               cuisines={restaurant.info.cuisines}
               avgRating={restaurant.info.avgRating}
               cloudinaryImageId={restaurant.info.cloudinaryImageId} */
-          />
+            />
+          </Link>
         ))}
       </div>
     </>

@@ -4,15 +4,17 @@ import Body from "./Body";
 import Header from "./Header";
 import Footer from "./Footer";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./About";
 import Contact from "./Contanct";
+import Error from "./Error";
+import RestauRantMenu from "./RestauRantMenu";
 
 const AppLayout = () => {
   return (
     <React.Fragment>
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
     </React.Fragment>
   );
@@ -22,14 +24,25 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-  },
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/about",
+        element: <About />,
+      },
+     {
+        path: "/contact",
+        element: <Contact />,
+      }, 
+     {
+        path: "/",
+        element: <Body />,
+      }, 
+      {
+        path: "/restarurant/:id",
+        element: <RestauRantMenu />,
+      }, 
+    ],
   },
 ]);
 
