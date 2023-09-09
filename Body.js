@@ -6,7 +6,7 @@ import CircularIndeterminate from "./shimmer";
 import { Link } from "react-router-dom";
 const filteredData = (input, filterdata) => {
   const data = filterdata.filter((restaurant) => {
-    return restaurant.info.name.toLowerCase().includes(input).toLowerCase();
+    return restaurant.info.name.toLowerCase().includes(input.toLowerCase());
   });
   return data;
 };
@@ -77,9 +77,11 @@ const Body = () => {
       </div>
       <div className="body">
         {filterrestaurantconst.map((restaurant) => (
-          <Link to={"/restarurant/"+restaurant.info.id} key={restaurant.info.id}>
+          <Link
+            to={"/restarurant/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
             <RestaurantCard
-              
               {...restaurant.info}
 
               /* key={restaurant.info.id}

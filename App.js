@@ -9,6 +9,7 @@ import About from "./About";
 import Contact from "./Contanct";
 import Error from "./Error";
 import RestauRantMenu from "./RestauRantMenu";
+import LoginPage from "./LoginPage";
 
 const AppLayout = () => {
   return (

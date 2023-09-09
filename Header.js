@@ -12,6 +12,7 @@ const Title = () => {
 
 const Header = () => {
   const [title, settitle] = useState("Food Villa");
+  console.log(useState);
   const [login, setlogin] = useState(true);
   return (
     <div className="header">

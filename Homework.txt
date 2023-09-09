@@ -270,3 +270,57 @@ async and await are keywords in JavaScript used for working with asynchronous op
 11.What is the use of `const json = await data.json();` is getRestaturan();
 data is  a async object returned from fetch api. which then converted to json format and stored in the json constant.
 
+
+
+
+CHAPTER-7(Finding the path)
+-=------=-
+1.What are various way to add image into react app? Explainw tih code example?
+a. Importing Images: You can import images directly into your React component and use them as variables.
+
+jsx
+Copy code
+import React from 'react';
+import myImage from './myImage.jpg';
+
+function MyComponent() {
+  return (
+    <div>
+      <img src={myImage} alt="My Image" />
+    </div>
+  );
+}
+
+export default MyComponent;
+b. Using Public Folder: You can place your images in the public folder of your React app and reference them using the public URL.
+
+jsx
+Copy code
+function MyComponent() {
+  return (
+    <div>
+      <img src="/myImage.jpg" alt="My Image" />
+    </div>
+  );
+}
+
+export default MyComponent;
+c. Using CSS: You can also set the background-image property in CSS to reference images.
+
+2.What will happen if we do console.log(useState())
+
+We will get funciton/.
+
+3.How will useEffect beahve if we do not put dependency array ? 
+
+If you do not provide a dependency array in a useEffect hook, it will run on every render cycle, causing the effect to behave similarly to componentDidMount and componentDidUpdate. This means the effect code will execute whenever any state or prop changes. It can lead to performance issues and unintended side effects. It's usually better to specify dependencies to control when the effect should run.
+
+
+4.What is SPA ?
+
+SPA stands for Single Page Application. It is a web application or website that loads a single HTML page and dynamically updates the content as the user interacts with the application. SPAs use technologies like JavaScript, React, Angular, or Vue to provide a smooth and responsive user experience without the need for full-page reloads. Navigation within an SPA typically happens without a request to the server, as the application handles routing and content rendering on the client side.
+
+5.What is difference between client side routing and server side routing?
+Client-side routing: In client-side routing, the routing logic is handled on the client (browser) side using JavaScript. When a user clicks a link or enters a URL, the browser doesn't make a full request to the server for a new page. Instead, JavaScript code updates the DOM to display the appropriate content based on the URL, providing a smoother and faster user experience. Popular libraries for client-side routing in React include React Router and Reach Router.
+
+Server-side routing: Server-side routing involves the server processing each request for a new page. When a user clicks a link or enters a URL, the browser sends a request to the server, which then generates and returns the HTML for the requested page. This approach is more traditional and is commonly used in traditional multi-page web applications. Server-side routing is typically slower than client-side routing because it involves full-page reloads for each navigation.
