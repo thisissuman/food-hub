@@ -4,18 +4,15 @@ import { restaurantList } from "./constant";
 import Shimmer from "./shimmer";
 import CircularIndeterminate from "./shimmer";
 import { Link } from "react-router-dom";
-const filteredData = (input, filterdata) => {
-  const data = filterdata.filter((restaurant) => {
-    return restaurant.info.name.toLowerCase().includes(input.toLowerCase());
-  });
-  return data;
-};
+import { filteredData } from "./utils/helper";
+import useOnline from "./utils/useOnline";
 
 const Body = () => {
   const [filterrestaurantconst, setFilterrestaurantconst] = useState([]);
   const [allrestaurantinitial, setAllrestauranrestaurantinitial] = useState([]);
   const [input, setinput] = useState("");
-
+  const isOnline = useOnline();
+  
   // it will call the fetch api after 1 render.
   useEffect(() => {
     setAllrestauranrestaurantinitial(restaurantList);
@@ -32,9 +29,37 @@ const Body = () => {
   } */
   console.log("render" + filterrestaurantconst.length);
   console.log(filterrestaurantconst);
-  if (filterrestaurantconst.length === 0) {
-    return (
-      <div>
+  console.log(isOnline);
+  if (!isOnline) {
+    return <h1>You are offline</h1>;
+  } else {
+    if (filterrestaurantconst.length === 0) {
+      return (
+        <div>
+          <div className="search-container">
+            <input
+              type="text"
+              onChange={(e) => setinput(e.target.value)}
+              value={input}
+            />
+            <button
+              className="search-button"
+              onClick={() => {
+                const data = filteredData(input, allrestaurantinitial);
+                setFilterrestaurantconst(data);
+              }}
+            >
+              Search
+            </button>
+          </div>
+          <h2>No restaruanbt found</h2>
+        </div>
+      );
+    }
+    return filterrestaurantconst.length === 0 ? (
+      <CircularIndeterminate />
+    ) : (
+      <>
         <div className="search-container">
           <input
             type="text"
@@ -51,50 +76,27 @@ const Body = () => {
             Search
           </button>
         </div>
-        <h2>No restaruanbt found</h2>
-      </div>
+        <div className="body">
+          {filterrestaurantconst.map((restaurant) => (
+            <Link
+              to={"/restarurant/" + restaurant.info.id}
+              key={restaurant.info.id}
+            >
+              <RestaurantCard
+                {...restaurant.info}
+
+                /* key={restaurant.info.id}
+                name={restaurant.info.name}
+                cuisines={restaurant.info.cuisines}
+                avgRating={restaurant.info.avgRating}
+                cloudinaryImageId={restaurant.info.cloudinaryImageId} */
+              />
+            </Link>
+          ))}
+        </div>
+      </>
     );
   }
-  return filterrestaurantconst.length === 0 ? (
-    <CircularIndeterminate />
-  ) : (
-    <>
-      <div className="search-container">
-        <input
-          type="text"
-          onChange={(e) => setinput(e.target.value)}
-          value={input}
-        />
-        <button
-          className="search-button"
-          onClick={() => {
-            const data = filteredData(input, allrestaurantinitial);
-            setFilterrestaurantconst(data);
-          }}
-        >
-          Search
-        </button>
-      </div>
-      <div className="body">
-        {filterrestaurantconst.map((restaurant) => (
-          <Link
-            to={"/restarurant/" + restaurant.info.id}
-            key={restaurant.info.id}
-          >
-            <RestaurantCard
-              {...restaurant.info}
-
-              /* key={restaurant.info.id}
-              name={restaurant.info.name}
-              cuisines={restaurant.info.cuisines}
-              avgRating={restaurant.info.avgRating}
-              cloudinaryImageId={restaurant.info.cloudinaryImageId} */
-            />
-          </Link>
-        ))}
-      </div>
-    </>
-  );
 };
 
 export default Body;

@@ -42,6 +42,9 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
+          <li>
+            <Link to="/insta">InstaMart</Link>
+          </li>
         </ul>
       </div>
     </div>
