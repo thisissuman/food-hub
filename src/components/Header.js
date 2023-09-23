@@ -4,7 +4,7 @@ const Title = () => {
   return (
     <Link to="/">
       <img
-        className="h-28 p-2"
+        className="h-28 p-2 rounded-full "
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-kfdoTQAkfzU6jov5O7b0CfQIZM1fYWPv65XEbwEcRIZcaMZuPUcuV9hwX5Ixi0_1VD8&usqp=CAU"
         alt=""
       />

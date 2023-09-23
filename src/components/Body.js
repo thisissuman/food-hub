@@ -12,12 +12,13 @@ const Body = () => {
   const [allrestaurantinitial, setAllrestauranrestaurantinitial] = useState([]);
   const [input, setinput] = useState("");
   const isOnline = useOnline();
-  
+
   // it will call the fetch api after 1 render.
   useEffect(() => {
     setAllrestauranrestaurantinitial(restaurantList);
     setFilterrestaurantconst(restaurantList);
   }, []);
+
 
   /*   async function getRestroapi() {
     const data = await fetch(
@@ -64,9 +65,16 @@ const Body = () => {
         <div className="p-5 bg-pink-50 my-5 px-50 flex items-center justify-center">
           <input
             type="text"
-            className="border rounded-lg p-2 mr-2 focus:bg-yellow-200 w-200"
+            className="border outline-neutral-400 rounded-lg p-2 mr-2 focus:bg-yellow-50 w-1/2"
             onChange={(e) => setinput(e.target.value)}
             value={input}
+            onKeyDown={(event) => {
+              console.log(event.key);
+              if (event.key === "Enter") {
+                const data = filteredData(input, allrestaurantinitial);
+                setFilterrestaurantconst(data);
+              }
+            }}
           />
           <button
             className="p-2 m-2 bg-purple-900 hover:bg-gray-500  text-white rounded-lg px-4 py-2"
