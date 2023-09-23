@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
-import { restaurantList } from "./constant";
+import { restaurantList } from "../constant";
 import Shimmer from "./shimmer";
 import CircularIndeterminate from "./shimmer";
 import { Link } from "react-router-dom";
-import { filteredData } from "./utils/helper";
-import useOnline from "./utils/useOnline";
+import { filteredData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [filterrestaurantconst, setFilterrestaurantconst] = useState([]);
@@ -36,14 +36,15 @@ const Body = () => {
     if (filterrestaurantconst.length === 0) {
       return (
         <div>
-          <div className="search-container">
+          <div className="p-5 bg-pink-50 my-5 px-50 flex items-center justify-center">
             <input
               type="text"
               onChange={(e) => setinput(e.target.value)}
               value={input}
+              className="border rounded-lg p-2 mr-2"
             />
             <button
-              className="search-button"
+              className="bg-blue-500 text-white rounded-lg px-4 py-2"
               onClick={() => {
                 const data = filteredData(input, allrestaurantinitial);
                 setFilterrestaurantconst(data);
@@ -60,14 +61,15 @@ const Body = () => {
       <CircularIndeterminate />
     ) : (
       <>
-        <div className="search-container">
+        <div className="p-5 bg-pink-50 my-5 px-50 flex items-center justify-center">
           <input
             type="text"
+            className="border rounded-lg p-2 mr-2 focus:bg-yellow-200 w-200"
             onChange={(e) => setinput(e.target.value)}
             value={input}
           />
           <button
-            className="search-button"
+            className="p-2 m-2 bg-purple-900 hover:bg-gray-500  text-white rounded-lg px-4 py-2"
             onClick={() => {
               const data = filteredData(input, allrestaurantinitial);
               setFilterrestaurantconst(data);
@@ -76,7 +78,7 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="body">
+        <div className="flex flex-wrap">
           {filterrestaurantconst.map((restaurant) => (
             <Link
               to={"/restarurant/" + restaurant.info.id}
