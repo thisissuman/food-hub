@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "../constant";
 import Shimmer from "./shimmer";
@@ -6,8 +6,9 @@ import CircularIndeterminate from "./shimmer";
 import { Link } from "react-router-dom";
 import { filteredData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
-
+import userContext from "../utils/userContext";
 const Body = () => {
+  const { user, setUser } = useContext(userContext);
   const [filterrestaurantconst, setFilterrestaurantconst] = useState([]);
   const [allrestaurantinitial, setAllrestauranrestaurantinitial] = useState([]);
   const [input, setinput] = useState("");
@@ -17,9 +18,7 @@ const Body = () => {
   useEffect(() => {
     setAllrestauranrestaurantinitial(restaurantList);
     setFilterrestaurantconst(restaurantList);
-  }, []);
-
-
+  }, []); 
   /*   async function getRestroapi() {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.3274946&lng=84.8802444&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
@@ -85,6 +84,23 @@ const Body = () => {
           >
             Search
           </button>
+          {console.log(user)}
+          <input
+            value={user.name}
+            onChange={(e) => {
+              setUser({
+                ...user,
+                name: e.target.value,
+              });
+            }}
+          />
+          <input
+            value={user.email}
+            onChange={(e) => {
+              console.log(e.target.value);
+              setUser({ ...user, email: e.target.value });
+            }}
+          />
         </div>
         <div className="flex flex-wrap">
           {filterrestaurantconst.map((restaurant) => (

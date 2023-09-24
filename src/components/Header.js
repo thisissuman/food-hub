@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
+import userContext from "../utils/userContext";
 const Title = () => {
   return (
     <Link to="/">
       <img
-        className="h-28 p-2 rounded-full "
+        className="h-28 p-2 rounded-full shadow-lg"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-kfdoTQAkfzU6jov5O7b0CfQIZM1fYWPv65XEbwEcRIZcaMZuPUcuV9hwX5Ixi0_1VD8&usqp=CAU"
         alt=""
       />
@@ -13,9 +15,11 @@ const Title = () => {
 };
 
 const Header = () => {
-  // const [title, settitle] = useState("Food Villa");
-  // console.log(useState);
-  //const [login, setlogin] = useState(true);
+  const {user} = useContext(userContext);
+  const [title, settitle] = useState("Food Villa");
+  const isOnline = useOnline();
+  console.log(useState);
+  const [login, setlogin] = useState(true);
   return (
     <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50">
       <Title />
@@ -38,6 +42,13 @@ const Header = () => {
           </li>
         </ul>
       </div>
+      <h1>{isOnline ? "You are Online" : "you are offline"}</h1>
+      <h2>{user.email}</h2>
+      {login ? (
+        <button onClick={() => setlogin(false)}>Login</button>
+      ) : (
+        <button onClick={() => setlogin(true)}>Logout</button>
+      )}
     </div>
   );
 };

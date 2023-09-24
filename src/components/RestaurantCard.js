@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import userContext from "../utils/userContext";
 
 const RestaurantCard = ({ cloudinaryImageId, avgRating, cuisines, name }) => {
+  const {user} = useContext(userContext);
   return (
     <div className="w-56 h-auto p-2 m-2 shadow-lg bg-pink-50">
       <img
@@ -15,6 +17,9 @@ const RestaurantCard = ({ cloudinaryImageId, avgRating, cuisines, name }) => {
         <h2 className="font-bold text-xl">{name}</h2>
         <h3 className="overflow-ellipsis overflow-hidden h-16">{cuisines.join(", ")}</h3>
         <h4>{avgRating}</h4>
+        <span>{user.name}</span>
+        <br />
+        <span>{user.email}</span>
       </div>
     </div>
   );
