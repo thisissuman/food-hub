@@ -1,7 +1,8 @@
-import { useEffect, useState,useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 const Title = () => {
   return (
     <Link to="/">
@@ -15,7 +16,8 @@ const Title = () => {
 };
 
 const Header = () => {
-  const {user} = useContext(userContext);
+  const cartItems = useSelector((store) => store.cart.items);
+  const { user } = useContext(userContext);
   const [title, settitle] = useState("Food Villa");
   const isOnline = useOnline();
   console.log(useState);
@@ -36,9 +38,11 @@ const Header = () => {
           <li className="px-2">
             <Link to="/contact">Contact</Link>
           </li>
-          <li className="px-2">Cart</li>
           <li className="px-2">
             <Link to="/insta">InstaMart</Link>
+          </li>
+          <li className="px-2 text-slate-600 text-xl">
+            <Link to="/cart">Cart - {cartItems.length} items</Link>
           </li>
         </ul>
       </div>
