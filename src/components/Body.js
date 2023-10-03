@@ -18,7 +18,7 @@ const Body = () => {
   useEffect(() => {
     setAllrestauranrestaurantinitial(restaurantList);
     setFilterrestaurantconst(restaurantList);
-  }, []); 
+  }, []);
   /*   async function getRestroapi() {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.3274946&lng=84.8802444&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
@@ -76,6 +76,7 @@ const Body = () => {
             }}
           />
           <button
+            data-testid="search-btn"
             className="p-2 m-2 bg-purple-900 hover:bg-gray-500  text-white rounded-lg px-4 py-2"
             onClick={() => {
               const data = filteredData(input, allrestaurantinitial);
@@ -95,6 +96,7 @@ const Body = () => {
             }}
           />
           <input
+            data-testid="search-input"
             value={user.email}
             onChange={(e) => {
               console.log(e.target.value);
