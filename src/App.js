@@ -5,8 +5,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "../index.css";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import About from "./components/About";
-import Contact from "./components/Contanct";
+import Offers from "./components/Offers";
+import Help from "./components/Help";
 import Error from "./components/Error";
 import RestauRantMenu from "./components/RestauRantMenu";
 import userContext from "./utils/userContext";
@@ -47,12 +47,12 @@ const appRouter = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/about",
-        element: <About />,
+        path: "/offers",
+        element: <Offers />,
       },
       {
-        path: "/contact",
-        element: <Contact />,
+        path: "/help",
+        element: <Help />,
       },
 
       {

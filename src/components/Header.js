@@ -3,11 +3,19 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import userContext from "../utils/userContext";
 import { useSelector } from "react-redux";
+import { ChevronDown } from "lucide-react";
+import { BadgePercent } from "lucide-react";
+import { LifeBuoy } from "lucide-react";
+import { CircleUserRound } from "lucide-react";
+import { Salad } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
+import { Search } from 'lucide-react';
+
 const Title = () => {
   return (
     <Link to="/">
       <img
-        className="h-28 p-2 rounded-full shadow-lg"
+        className="h-20 w-20 p-2 rounded-full shadow-lg ml-5 mt-5"
         data-testid="logo"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-kfdoTQAkfzU6jov5O7b0CfQIZM1fYWPv65XEbwEcRIZcaMZuPUcuV9hwX5Ixi0_1VD8&usqp=CAU"
         alt=""
@@ -24,36 +32,79 @@ const Header = () => {
   console.log(useState);
   const [login, setlogin] = useState(true);
   return (
-    <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50">
-      <Title />
-      <h1 className="text-center text-4xl font-bold py-10">Food Villa</h1>
+    <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50 m-0 p-0 h-22">
+      <div className="flex justify-start">
+        <Title />
+        <div className="pt-10 flex gap-3 px-10">
+          <span className="text-center font-bold underline font-custom ">
+            Other
+          </span>
+          <span className=" text-slate-500 font-custom">
+            Backside of rammandir, 7RGR+VP7,...
+          </span>
+          <ChevronDown className="text-orange-500" />
+        </div>
+      </div>
 
-      <div className="nav-items">
-        <ul className="flex py-10">
-          <li className="px-2">
+      <div className="nav-items flex justify-end pr-10">
+        {/* Added justify-end */}
+        <ul className="flex py-10 gap-5">
+          {/* <li className="px-2">
             <Link to="/">Home</Link>
+          </li> */}
+          <li className="px-2  font-custom flex justify-center items-center">
+            <Link
+              to="/Search"
+              className=" flex justify-center items-center  gap-2"
+            >
+              <Search /> Search
+            </Link>
           </li>
-          <li className="px-2">
-            <Link to="/about">About</Link>
+          <li className="px-2  font-custom flex justify-center items-center">
+            <Link
+              to="/Offers"
+              className=" flex justify-center items-center  gap-2"
+            >
+              <BadgePercent /> Offers{" "}
+            </Link>
           </li>
-          <li className="px-2">
-            <Link to="/contact">Contact</Link>
+          <li className="px-2  font-custom  flex justify-center items-center">
+            <Link
+              to="/Help"
+              className=" flex justify-center items-center gap-2"
+            >
+              <LifeBuoy /> Help
+            </Link>
           </li>
-          <li className="px-2">
-            <Link to="/insta">InstaMart</Link>
+          <li className="px-2  font-custom ">
+            <Link
+              to="/insta"
+              className=" flex justify-center items-center gap-2"
+            >
+              <Salad />
+              InstaMart
+            </Link>
           </li>
-          <li  className="px-2 text-slate-600 text-xl">
-            <Link data-testid="cartitem" to="/cart">Cart - {cartItems.length} items</Link>
+          <li className="px-2  font-custom flex justify-center items-center">
+            <Link
+              to="/signin"
+              className=" flex justify-center items-center  gap-2"
+            >
+              <CircleUserRound />
+              {login ? (
+                <button onClick={() => setlogin(false)}>Login</button>
+              ) : (
+                <button onClick={() => setlogin(true)}>Logout</button>
+              )}
+            </Link>
+          </li>
+          <li className="px-2 text-slate-600 text-xl  font-custom">
+            <Link data-testid="cartitem" to="/cart" className=" border-spacing-5 to-black">
+              Cart-{cartItems.length}
+            </Link>
           </li>
         </ul>
       </div>
-      <h1 data-testid="online-status">{isOnline ? "You are Online" : "you are offline"}</h1>
-      <h2>{user.email}</h2>
-      {login ? (
-        <button onClick={() => setlogin(false)}>Login</button>
-      ) : (
-        <button onClick={() => setlogin(true)}>Logout</button>
-      )}
     </div>
   );
 };
