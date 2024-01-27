@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "../constant";
-import Shimmer from "./shimmer";
 import CircularIndeterminate from "./shimmer";
 import { Link } from "react-router-dom";
 import { filteredData } from "../utils/helper";
