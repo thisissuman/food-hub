@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "../constant";
-import CircularIndeterminate from "./shimmer";
 import { Link } from "react-router-dom";
 import { filteredData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import userContext from "../utils/userContext";
+import {CircularIndeterminate} from "./shimmer";
 const Body = () => {
   const { user, setUser } = useContext(userContext);
   const [filterrestaurantconst, setFilterrestaurantconst] = useState([]);
