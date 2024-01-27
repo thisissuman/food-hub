@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { filteredData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import userContext from "../utils/userContext";
-import {CircularIndeterminate} from "./shimmer";
+import Shimmer from "./Shimmero";
+
 const Body = () => {
   const { user, setUser } = useContext(userContext);
   const [filterrestaurantconst, setFilterrestaurantconst] = useState([]);
@@ -57,7 +58,7 @@ const Body = () => {
       );
     }
     return filterrestaurantconst.length === 0 ? (
-      <CircularIndeterminate />
+      <Shimmer />
     ) : (
       <>
         <div className="p-5 bg-pink-50 my-5 px-50 flex items-center justify-center">
