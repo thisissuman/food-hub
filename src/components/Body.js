@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { filteredData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import userContext from "../utils/userContext";
-import Shimmer from "./Shimmero";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const { user, setUser } = useContext(userContext);
