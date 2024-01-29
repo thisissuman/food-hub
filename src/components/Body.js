@@ -100,7 +100,7 @@ const Body = () => {
             value={user.email}
             onChange={(e) => {
               console.log(e.target.value);
-              setUser({ ...user, email: e.target.value });
+              setUser ({ ...user, email: e.target.value });
             }}
           />
         </div>
