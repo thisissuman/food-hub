@@ -6,6 +6,8 @@ import { filteredData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import userContext from "../utils/userContext";
 import Shimmer from "./Shimmer";
+import { Search } from "lucide-react";
+import FoodGallery from "./FoodGallery";
 
 const Body = () => {
   const { user, setUser } = useContext(userContext);
@@ -61,20 +63,26 @@ const Body = () => {
       <Shimmer />
     ) : (
       <>
-        <div className="p-5 bg-pink-50 my-5 px-50 flex items-center justify-center">
-          <input
-            type="text"
-            className="border outline-neutral-400 rounded-lg p-2 mr-2 focus:bg-yellow-50 w-1/2"
-            onChange={(e) => setinput(e.target.value)}
-            value={input}
-            onKeyDown={(event) => {
-              console.log(event.key);
-              if (event.key === "Enter") {
-                const data = filteredData(input, allrestaurantinitial);
-                setFilterrestaurantconst(data);
-              }
-            }}
-          />
+      
+        <div className="p-5  my-5 px-50 flex items-center justify-center">
+          <div className="border outline-neutral-400 rounded-lg p-2 mr-2 mr-10 focus:bg-yellow-50 w-1/2 flex scale-105">
+            <Search className="pr-2"/>
+            <input
+              type="text"
+              placeholder="Search for restaurant, cuisine or a dish"
+              className="rounded-lg w-full outline-none"
+              onChange={(e) => setinput(e.target.value)}
+              value={input}
+              onKeyDown={(event) => {
+                console.log(event.key);
+                if (event.key === "Enter") {
+                  const data = filteredData(input, allrestaurantinitial);
+                  setFilterrestaurantconst(data);
+                }
+              }}
+            />
+          </div>
+
           <button
             data-testid="search-btn"
             className="p-2 m-2 bg-purple-900 hover:bg-gray-500  text-white rounded-lg px-4 py-2"
@@ -85,7 +93,7 @@ const Body = () => {
           >
             Search
           </button>
-          {console.log(user)}
+          {/* {console.log(user)}
           <input
             value={user.name}
             onChange={(e) => {
@@ -102,9 +110,10 @@ const Body = () => {
               console.log(e.target.value);
               setUser ({ ...user, email: e.target.value });
             }}
-          />
+          /> */}
         </div>
-        <div className="flex flex-wrap">
+        <FoodGallery/>
+        <div className="flex flex-wrap items-center mb-10 justify-center ">
           {filterrestaurantconst.map((restaurant) => (
             <Link
               to={"/restarurant/" + restaurant.info.id}
@@ -122,6 +131,7 @@ const Body = () => {
             </Link>
           ))}
         </div>
+        
       </>
     );
   }

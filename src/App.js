@@ -13,6 +13,7 @@ import userContext from "./utils/userContext";
 import store from "./utils/store";
 import { Provider, useDispatch } from "react-redux";
 import Cart from "./components/Cart";
+import FoodGallery from "./components/FoodGallery";
 
 const InstaMart = lazy(() => import("./components/InstaMArt"));
 
@@ -58,6 +59,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
+      },
+      {
+        path: "/",
+        element: <FoodGallery />,
       },
       {
         path: "/restarurant/:id",

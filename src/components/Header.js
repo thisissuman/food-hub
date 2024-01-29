@@ -52,14 +52,14 @@ const Header = () => {
           {/* <li className="px-2">
             <Link to="/">Home</Link>
           </li> */}
-          <li className="px-2  font-custom flex justify-center items-center">
+          {/* <li className="px-2  font-custom flex justify-center items-center">
             <Link
               to="/Search"
               className=" flex justify-center items-center  gap-2"
             >
               <Search /> Search
             </Link>
-          </li>
+          </li> */}
           <li className="px-2  font-custom flex justify-center items-center">
             <Link
               to="/Offers"
