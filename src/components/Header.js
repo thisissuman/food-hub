@@ -9,7 +9,8 @@ import { LifeBuoy } from "lucide-react";
 import { CircleUserRound } from "lucide-react";
 import { Salad } from "lucide-react";
 import { ShoppingCart } from "lucide-react";
-import { Search } from 'lucide-react';
+import { Search } from "lucide-react";
+import foodtexture from "../../assets/Loginfood.jpg"
 
 const Title = () => {
   return (
@@ -32,7 +33,13 @@ const Header = () => {
   console.log(useState);
   const [login, setlogin] = useState(true);
   return (
-    <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50 m-0 p-0 h-22">
+    <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50 m-0 p-0 h-22" style={{ 
+      backgroundImage: `url(${foodtexture})`, 
+      backgroundSize: 'cover', // Ensure the image covers the entire div
+      backgroundPosition: 'center', // Center the image
+      backgroundColor: 'rgba(255, 255, 255, 0.7)',
+       // Add a more transparent white overlay
+    }}>
       <div className="flex justify-start">
         <Title />
         <div className="pt-10 flex gap-3 px-10">
@@ -87,19 +94,25 @@ const Header = () => {
           </li>
           <li className="px-2  font-custom flex justify-center items-center">
             <Link
-              to="/signin"
+              to="/login"
               className=" flex justify-center items-center  gap-2"
             >
               <CircleUserRound />
               {login ? (
-                <button onClick={() => setlogin(false)}>Login</button>
+                <button onClick={() => setlogin(false)}>
+                 Login
+                </button>
               ) : (
                 <button onClick={() => setlogin(true)}>Logout</button>
               )}
             </Link>
           </li>
           <li className="px-2 text-slate-600 text-xl  font-custom">
-            <Link data-testid="cartitem" to="/cart" className=" border-spacing-5 to-black">
+            <Link
+              data-testid="cartitem"
+              to="/cart"
+              className=" border-spacing-5 to-black"
+            >
               Cart-{cartItems.length}
             </Link>
           </li>

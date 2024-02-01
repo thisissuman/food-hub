@@ -14,6 +14,8 @@ import store from "./utils/store";
 import { Provider, useDispatch } from "react-redux";
 import Cart from "./components/Cart";
 import FoodGallery from "./components/FoodGallery";
+import LoginPage from "./components/LoginPage";
+
 
 const InstaMart = lazy(() => import("./components/InstaMArt"));
 
@@ -54,6 +56,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/help",
         element: <Help />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
       },
 
       {
