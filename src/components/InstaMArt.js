@@ -8,7 +8,7 @@ const Section = ({ title, description, isvisible, setIsVisible }) => {
         className="border border-blue-600 box-content"
         onClick={() => {
           setIsVisible(!isvisible);
-          console.log(isvisible);
+          
         }}
       >
         {!isvisible ? "Show" : "Hide"}

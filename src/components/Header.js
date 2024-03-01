@@ -30,7 +30,7 @@ const Header = () => {
   const { user } = useContext(userContext);
   const [title, settitle] = useState("Food Villa");
   const isOnline = useOnline();
-  console.log(useState);
+  
   const [login, setlogin] = useState(true);
   return (
     <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50 m-0 p-0 h-22" style={{ 

@@ -6,7 +6,7 @@ const FoodGallery = () => {
     { name: 'Paneer', imgSrc: 'https://b.zmtcdn.com/data/dish_images/e44c42ff4b60b025225c8691ef9735b11635781903.png' },
     { name: 'Fried Rice', imgSrc: 'https://b.zmtcdn.com/data/o2_assets/e444ade83eb22360b6ca79e6e777955f1632716661.png' },
     { name: 'Chicken', imgSrc: 'https://b.zmtcdn.com/data/dish_images/197987b7ebcd1ee08f8c25ea4e77e20f1634731334.png' },
-    { name: 'Rolls', imgSrc: 'https://b.zmtcdn.com/data/dish_images/d19a31d42d5913ff129cafd7cec772f81639737697.png' },
+    
     { name: 'Cake', imgSrc: 'https://b.zmtcdn.com/data/dish_images/d5ab931c8c239271de45e1c159af94311634805744.png' }
   ];
 
