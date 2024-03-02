@@ -4,15 +4,12 @@ import { restaurantList } from "../constant";
 import { Link } from "react-router-dom";
 import { filteredData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
-import userContext from "../utils/userContext";
 import Shimmer from "./Shimmer";
 import { Search } from "lucide-react";
 import FoodGallery from "./FoodGallery";
 
 const Body = () => {
-  const { user, setUser } = useContext(userContext);
   const [filterrestaurantconst, setFilterrestaurantconst] = useState([]);
-
   const [allrestaurantinitial, setAllrestauranrestaurantinitial] = useState([]);
   const [input, setinput] = useState("");
   const isOnline = useOnline();
@@ -41,111 +38,64 @@ const Body = () => {
 
   if (!isOnline) {
     return <h1>You are offline</h1>;
-  } else {
-    if (filterrestaurantconst.length === 0) {
-      return (
-        <div>
-          <div className="p-5 bg-pink-50 my-5 px-50 flex items-center justify-center">
-            <input
-              type="text"
-              onChange={(e) => setinput(e.target.value)}
-              value={input}
-              className="border rounded-lg p-2 mr-2"
-            />
-            <button
-              className="bg-blue-500 text-white rounded-lg px-4 py-2"
-              onClick={() => {
-                const data = filteredData(input, allrestaurantinitial);
-                setFilterrestaurantconst(data);
-              }}
-            >
-              Search
-            </button>
-            <button
-              className="bg-blue-500 text-white rounded-lg px-4 py-2"
-              onClick={() => {
-                const data = filteredData(input, allrestaurantinitial);
-                setFilterrestaurantconst(data);
-              }}
-            >
-              Show Top Rated Restarurant
-            </button>
-          </div>
-          <h2>No restaruanbt found</h2>
-        </div>
-      );
-    }
-    return filterrestaurantconst.length === 0 ? (
-      <Shimmer />
-    ) : (
-      <>
-        <div className="p-5  my-5 px-50 flex items-center justify-center">
-          <div className="border outline-neutral-400 rounded-lg p-2 mr-2 mr-10 focus:bg-yellow-50 w-1/2 flex scale-105">
-            <Search className="pr-2" />
-            <input
-              type="text"
-              placeholder="Search for restaurant, cuisine or a dish"
-              className="rounded-lg w-full outline-none"
-              onChange={(e) => setinput(e.target.value)}
-              value={input}
-              onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                  const data = filteredData(input, allrestaurantinitial);
-                  setFilterrestaurantconst(data);
-                }
-              }}
-            />
-          </div>
-
-          <button
-            data-testid="search-btn"
-            className="p-2 m-2 bg-purple-900 hover:bg-gray-500  text-white rounded-lg px-4 py-2"
-            onClick={() => {
-              const data = filteredData(input, allrestaurantinitial);
-              setFilterrestaurantconst(data);
-            }}
-          >
-            Search
-          </button>
-          <button
-            className="bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-gray-500"
-            onClick={filteredToprated}
-          >
-            Show Top Rated Restarurant
-          </button>
-          {/* {console.log(user)}
+  }
+  return restaurantList.length === 0 ? (
+    <div className="flex flex-wrap justify-center">
+      {[...Array(8)].map((_, i) => (
+        <Shimmer key={i} />
+      ))}
+    </div>
+  ) : (
+    <>
+      <div className="p-5  my-5 px-50 flex items-center justify-center">
+        <div className="border outline-neutral-400 rounded-lg p-2  mr-10 focus:bg-yellow-50 w-1/2 flex scale-105">
+          <Search className="pr-2" />
           <input
-            value={user.name}
-            onChange={(e) => {
-              setUser({
-                ...user,
-                name: e.target.value,
-              });
+            type="text"
+            placeholder="Search for restaurant, cuisine or a dish"
+            className="rounded-lg w-full outline-none"
+            onChange={(e) => setinput(e.target.value)}
+            value={input}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                const data = filteredData(input, allrestaurantinitial);
+                setFilterrestaurantconst(data);
+              }
             }}
           />
-          <input
-            data-testid="search-input"
-            value={user.email}
-            onChange={(e) => {
-              console.log(e.target.value);
-              setUser ({ ...user, email: e.target.value });
-            }}
-          /> */}
         </div>
-        <FoodGallery />
-        <div className="flex flex-wrap items-center mb-10 justify-center ">
-          {filterrestaurantconst.map((restaurant) => (
-            <Link
-              to={"/restarurant/" + restaurant.info.id}
-              key={restaurant.info.id}
-            >
-              <RestaurantCard {...restaurant.info} />
-            </Link>
-          ))}
-        </div>
-      </>
-    );
-  }
+
+        <button
+          data-testid="search-btn"
+          className="p-2 m-2 bg-purple-900 hover:bg-gray-500  text-white rounded-lg px-4 py-2"
+          onClick={() => {
+            const data = filteredData(input, allrestaurantinitial);
+            setFilterrestaurantconst(data);
+            
+          }}
+        >
+          Search
+        </button>
+        <button
+          className="bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-gray-500"
+          onClick={filteredToprated}
+        >
+          Show Top Rated Restarurant
+        </button>
+      </div>
+      <FoodGallery />
+      <div className="flex flex-wrap items-center mb-10 justify-center ">
+        {filterrestaurantconst.map((restaurant) => (
+          <Link
+            to={"/restarurant/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
+            <RestaurantCard {...restaurant.info} />
+          </Link>
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default Body;

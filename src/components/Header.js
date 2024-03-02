@@ -10,7 +10,7 @@ import { CircleUserRound } from "lucide-react";
 import { Salad } from "lucide-react";
 import { ShoppingCart } from "lucide-react";
 import { Search } from "lucide-react";
-import foodtexture from "../../assets/Loginfood.jpg"
+import foodtexture from "../../assets/Loginfood.jpg";
 
 const Title = () => {
   return (
@@ -30,16 +30,19 @@ const Header = () => {
   const { user } = useContext(userContext);
   const [title, settitle] = useState("Food Villa");
   const isOnline = useOnline();
-  
+
   const [login, setlogin] = useState(true);
   return (
-    <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50 m-0 p-0 h-22" style={{ 
-      backgroundImage: `url(${foodtexture})`, 
-      backgroundSize: 'cover', // Ensure the image covers the entire div
-      backgroundPosition: 'center', // Center the image
-      backgroundColor: 'rgba(255, 255, 255, 0.7)',
-       // Add a more transparent white overlay
-    }}>
+    <div
+      className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50 m-0 p-0 h-22"
+      style={{
+        backgroundImage: `url(${foodtexture})`,
+        backgroundSize: "cover", // Ensure the image covers the entire div
+        backgroundPosition: "center", // Center the image
+        backgroundColor: "rgba(255, 255, 255, 0.7)",
+        // Add a more transparent white overlay
+      }}
+    >
       <div className="flex justify-start">
         <Title />
         <div className="pt-10 flex gap-3 px-10">
@@ -54,19 +57,7 @@ const Header = () => {
       </div>
 
       <div className="nav-items flex justify-end pr-10">
-        {/* Added justify-end */}
         <ul className="flex py-10 gap-5">
-          {/* <li className="px-2">
-            <Link to="/">Home</Link>
-          </li> */}
-          {/* <li className="px-2  font-custom flex justify-center items-center">
-            <Link
-              to="/Search"
-              className=" flex justify-center items-center  gap-2"
-            >
-              <Search /> Search
-            </Link>
-          </li> */}
           <li className="px-2  font-custom flex justify-center items-center">
             <Link
               to="/Offers"
@@ -99,9 +90,7 @@ const Header = () => {
             >
               <CircleUserRound />
               {login ? (
-                <button onClick={() => setlogin(false)}>
-                 Login
-                </button>
+                <button onClick={() => setlogin(false)}>Login</button>
               ) : (
                 <button onClick={() => setlogin(true)}>Logout</button>
               )}
