@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromote } from "./RestaurantCard";
 import { restaurantList } from "../constant";
 import { Link } from "react-router-dom";
 import { filteredData } from "../utils/helper";
@@ -14,6 +14,7 @@ const Body = () => {
   const [input, setinput] = useState("");
   const isOnline = useOnline();
 
+  const RestarurantPromote = withPromote(RestaurantCard);
   // it will call the fetch api after 1 render.
   useEffect(() => {
     setAllrestauranrestaurantinitial(restaurantList);
@@ -71,7 +72,6 @@ const Body = () => {
           onClick={() => {
             const data = filteredData(input, allrestaurantinitial);
             setFilterrestaurantconst(data);
-            
           }}
         >
           Search
@@ -84,13 +84,18 @@ const Body = () => {
         </button>
       </div>
       <FoodGallery />
+
       <div className="flex flex-wrap items-center mb-10 justify-center ">
         {filterrestaurantconst.map((restaurant) => (
           <Link
             to={"/restarurant/" + restaurant.info.id}
             key={restaurant.info.id}
           >
-            <RestaurantCard {...restaurant.info} />
+            {restaurant?.info?.promote ? (
+              <RestarurantPromote {...restaurant.info} />
+            ) : (
+              <RestaurantCard {...restaurant.info} />
+            )}
           </Link>
         ))}
       </div>

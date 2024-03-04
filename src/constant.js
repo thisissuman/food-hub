@@ -3,6 +3,7 @@ export const restaurantList = [
     info: {
       id: "195976",
       name: "Satya Sai",
+      promote:true,
       cloudinaryImageId: "meerjzdqi0r7peojhi4q",
       locality: "Kamapalli Square",
       areaName: "Berhampur",
@@ -89,6 +90,7 @@ export const restaurantList = [
     info: {
       id: "190026",
       name: "Nandan International",
+      promote:false,
       cloudinaryImageId: "xfmlz6te3pnnlep5jpw0",
       locality: "Church Road",
       areaName: "Berhampur",
@@ -169,6 +171,7 @@ export const restaurantList = [
     info: {
       id: "190362",
       name: "Atithi Inn",
+      promote:false,
       cloudinaryImageId: "aswajxmsabuliam2sgit",
       locality: "Tata Benz Square",
       areaName: "Berhampur",
@@ -261,6 +264,7 @@ export const restaurantList = [
     info: {
       id: "304053",
       name: "Hotel Bhubaneswari Palace",
+      promote:true,
       cloudinaryImageId: "yn11pqyd11z18bfzh5z8",
       locality: "Baidiya Nath Pur",
       areaName: "Berhampur",
@@ -341,6 +345,7 @@ export const restaurantList = [
     info: {
       id: "461414",
       name: "Olive Restaurant",
+      promote:false,
       cloudinaryImageId: "nlrtwwsnqklwp86ocbbz",
       locality: "Subharoa Square",
       areaName: "Berhampur",
@@ -425,6 +430,7 @@ export const restaurantList = [
     info: {
       id: "201629",
       name: "O' Kareem Family Restaurant",
+      promote:false,
       cloudinaryImageId: "g2nncuggd2pq4csa9yaq",
       locality: "Daringbadi - Gopalpur Road",
       areaName: "Manjari Nagar",
@@ -510,6 +516,7 @@ export const restaurantList = [
     info: {
       id: "190624",
       name: "It's my Way cafe & Restro",
+      promote:false,
       cloudinaryImageId: "risvtorxfkuyzsscesmc",
       locality: "Daringbadi - Gopalpur Road",
       areaName: "Gajapati Nagar",
@@ -595,6 +602,7 @@ export const restaurantList = [
     info: {
       id: "349697",
       name: "KFC",
+      promote:false,
       cloudinaryImageId: "56c9ab92bd79745fd152a30fa2525426",
       locality: "Telephone Bhawan Road",
       areaName: "Berhampur",
@@ -674,6 +682,7 @@ export const restaurantList = [
     info: {
       id: "336567",
       name: "Cafe Coffee Day",
+      promote:false,
       cloudinaryImageId: "l779x6jdm9sg8qbqje4e",
       locality: "Ramalingam Tank Road",
       areaName: "Berhampur",
@@ -762,6 +771,7 @@ export const restaurantList = [
     info: {
       id: "253132",
       name: "New Ganguram Mistan",
+      promote:false,
       cloudinaryImageId: "ok5tmtnaqhjcs7icuiox",
       locality: "Kamapalli Goilundi Road",
       areaName: "Berhampur",
@@ -844,3 +854,6 @@ export const restaurantList = [
     },
   },
 ];
+
+
+export const restarurantMenu = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.3274946&lng=84.8802444&restaurantId="

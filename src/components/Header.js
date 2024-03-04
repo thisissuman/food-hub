@@ -57,6 +57,7 @@ const Header = () => {
       </div>
 
       <div className="nav-items flex justify-end pr-10">
+        <h2>{isOnline ? '🟢' : '🔴'}</h2>
         <ul className="flex py-10 gap-5">
           <li className="px-2  font-custom flex justify-center items-center">
             <Link
