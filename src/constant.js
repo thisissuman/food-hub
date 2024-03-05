@@ -857,3 +857,4 @@ export const restaurantList = [
 
 
 export const restarurantMenu = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.3274946&lng=84.8802444&restaurantId="
+export const cloudinaryImageId = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"

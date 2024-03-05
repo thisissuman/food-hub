@@ -52,13 +52,16 @@ const RestauRantMenu = () => {
           🍗 NON VEG
         </span>
       )}
-      <h1>
-        {
-          restaurantmenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-            ?.card?.title
-        }
-      </h1>
-      <ul>{categoris && categoris.map((info) => <RestarurantCategory cat={info}/>)}</ul>
+
+      <div className="w-full">
+        {categoris &&
+          categoris.map((info) => (
+            <RestarurantCategory
+              category={info?.card?.card}
+              key={info?.card?.card?.title}
+            />
+          ))}
+      </div>
     </div>
   );
 };
