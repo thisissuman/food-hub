@@ -18,11 +18,16 @@ const ItemList = ({ list }) => {
               <p className="text-slate-400 mt-4">
                 {cat?.card?.info?.description}
               </p>
+            </div>
+            <div className="flex flex-wrap items-end pl-80">
               <img
-              className="w-14 h-10 object-contain"
+                className="w-24 h-24 object-contain"
                 src={`${cloudinaryImageId}${cat?.card?.info?.imageId}`}
                 alt=""
               />
+              <button className="p-1 bg-white shadow-lg m-auto absolute ">
+                Add +
+              </button>
             </div>
             <hr className="mt-6 mb-6 border border-b-4 border-b-slate-300" />
           </li>

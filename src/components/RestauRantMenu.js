@@ -12,7 +12,13 @@ const RestauRantMenu = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const restaurantmenu = useRestaurantMenu(id);
+  const [showindex, setshowindexes] = useState(0);
+  const [cola, setcola] = useState(false);
 
+  const setshowindexeshandler = (i) => {
+    setcola(!cola)
+    setshowindexes(cola ? i : null)
+  };
   const categoris =
     restaurantmenu[2]?.groupedCard.cardGroupMap?.REGULAR?.cards.filter((c) => {
       // console.log(c?.card?.card["@type"]);
@@ -21,7 +27,6 @@ const RestauRantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
       );
     });
-  console.log(categoris);
 
   return (
     <div className="px-28 py-10 border rounded-lg shadow-lg flex flex-col items-start space-y-5">
@@ -55,10 +60,12 @@ const RestauRantMenu = () => {
 
       <div className="w-full">
         {categoris &&
-          categoris.map((info) => (
+          categoris.map((info, i) => (
             <RestarurantCategory
               category={info?.card?.card}
               key={info?.card?.card?.title}
+              setshowindexes={() => setshowindexeshandler(i)}
+              showitmes={i === showindex ? true : false}
             />
           ))}
       </div>
