@@ -27,7 +27,8 @@ const Title = () => {
 
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  const { user } = useContext(userContext);
+  const {username,email} = useContext(userContext);
+  // console.log(user);
   const [title, settitle] = useState("Food Villa");
   const isOnline = useOnline();
 
@@ -106,6 +107,8 @@ const Header = () => {
               Cart-{cartItems.length}
             </Link>
           </li>
+          <p>{username}</p>
+          <p>{email}</p>
         </ul>
       </div>
     </div>

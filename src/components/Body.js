@@ -7,12 +7,16 @@ import useOnline from "../utils/useOnline";
 import Shimmer from "./Shimmer";
 import { Search } from "lucide-react";
 import FoodGallery from "./FoodGallery";
+import userContext from "../utils/userContext";
 
 const Body = () => {
   const [filterrestaurantconst, setFilterrestaurantconst] = useState([]);
   const [allrestaurantinitial, setAllrestauranrestaurantinitial] = useState([]);
   const [input, setinput] = useState("");
   const isOnline = useOnline();
+
+  const { setUser, setEmail, username, email } = useContext(userContext);
+  console.log(setUser);
 
   const RestarurantPromote = withPromote(RestaurantCard);
   // it will call the fetch api after 1 render.
@@ -83,7 +87,21 @@ const Body = () => {
           Show Top Rated Restarurant
         </button>
       </div>
+      <div></div>
       <FoodGallery />
+      <input
+        type="text"
+        placeholder="edit it"
+        onChange={(e) => setUser(e.target.value)  }
+        value={username}
+      />
+      <input
+        type="text"
+        placeholder="ddd it"
+        onChange={(e) => setEmail(e.target.value)  }
+        value={email}
+      />
+      <label htmlFor="">context</label>
 
       <div className="flex flex-wrap items-center mb-10 justify-center ">
         {filterrestaurantconst.map((restaurant) => (

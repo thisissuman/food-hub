@@ -1,4 +1,10 @@
-import React, { createElement, lazy, Suspense, useState } from "react";
+import React, {
+  createElement,
+  lazy,
+  Suspense,
+  useEffect,
+  useState,
+} from "react";
 import ReactDOM, { createRoot } from "react-dom/client";
 import Body from "./components/Body";
 import Header from "./components/Header";
@@ -16,25 +22,24 @@ import Cart from "./components/Cart";
 import FoodGallery from "./components/FoodGallery";
 import LoginPage from "./components/LoginPage";
 
-
 const InstaMart = lazy(() => import("./components/InstaMArt"));
 
 const AppLayout = () => {
-  const [user, setUser] = useState({
-    name: "Its Suman",
-    email: "its real email",
-  });
+  const [user, setUser] = useState();
+  const [email, setEmail] = useState();
 
-  
+  useEffect(() => {
+    const data = {
+      username: "Its Suman",
+      email: "its real email",
+    };
+    setUser(data.username);
+    setEmail(data.email);
+  }, []);
 
   return (
     <Provider store={store}>
-      <userContext.Provider
-        value={ {
-          user: user,
-          setUser: setUser,
-        }}
-      >
+      <userContext.Provider value={{ username: user, email: email, setUser, setEmail }}>
         <React.Fragment>
           <Header />
           <Outlet />
@@ -86,7 +91,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart/>,
+        element: <Cart />,
       },
     ],
   },

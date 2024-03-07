@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import userContext from "../utils/userContext";
 
 const RestaurantCard = ({ cloudinaryImageId, avgRating, cuisines, name }) => {
-  const { user } = useContext(userContext);
+  const { username, email } = useContext(userContext);
   return (
     <div className="w-56 h-96 p-2 m-2 shadow-lg bg-pink-50 transform transition duration-500 ease-in-out hover:scale-105 hover:shadow-2xl">
       <img
@@ -23,6 +23,8 @@ const RestaurantCard = ({ cloudinaryImageId, avgRating, cuisines, name }) => {
         <h4 className="font-bold text-green-600">
           <i className="fas fa-star"></i> {avgRating}⭐
         </h4>
+        <p>{username}</p>
+        <p>{email}</p>
       </div>
     </div>
   );
