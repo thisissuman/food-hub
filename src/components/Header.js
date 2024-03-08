@@ -98,7 +98,7 @@ const Header = () => {
               )}
             </Link>
           </li>
-          <li className="px-2 text-slate-600 text-xl  font-custom">
+          <li className="px-2 text-slate-600 text-xl  font-custom bg-amber-500 rounded-md">
             <Link
               data-testid="cartitem"
               to="/cart"

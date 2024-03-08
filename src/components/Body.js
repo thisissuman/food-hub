@@ -16,7 +16,7 @@ const Body = () => {
   const isOnline = useOnline();
 
   const { setUser, setEmail, username, email } = useContext(userContext);
-  console.log(setUser);
+  
 
   const RestarurantPromote = withPromote(RestaurantCard);
   // it will call the fetch api after 1 render.

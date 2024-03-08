@@ -1,17 +1,18 @@
 import React from "react";
 import { cloudinaryImageId } from "../constant";
-import { useContext } from "react";
-import userContext from "../utils/userContext";
-
+import cartSlice from "../slice/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../slice/cartSlice";
 
 const ItemList = ({ list }) => {
-  const {user, setUser} = useContext(userContext);
-  console.log(setUser);
   
-
+  const dispatch = useDispatch();
+  
+  const additemhandler = (e) => {
+    dispatch(addItem(e))
+  };
   return (
     <div className="flex justify-start w-full">
-      
       <ul>
         {list.map((cat) => (
           <li key={cat?.card?.info?.id}>
@@ -33,14 +34,15 @@ const ItemList = ({ list }) => {
                 src={`${cloudinaryImageId}${cat?.card?.info?.imageId}`}
                 alt=""
               />
-              <button className="p-1 bg-white shadow-lg m-auto absolute ">
+              <button
+                className="p-1 bg-white shadow-lg m-auto absolute "
+                onClick={() => additemhandler(cat?.card?.info)}
+              >
                 Add +
               </button>
             </div>
             <hr className="mt-6 mb-6 border border-b-4 border-b-slate-300" />
-            
           </li>
-          
         ))}
       </ul>
     </div>

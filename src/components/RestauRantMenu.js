@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { restaurantList } from "../constant";
 import { useDispatch } from "react-redux";
-import { addItem, clearCart } from "../slice/cartSlice";
 import { useState, useEffect } from "react";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useParams } from "react-router-dom";
@@ -20,12 +18,6 @@ const RestauRantMenu = () => {
     setcola(!cola);
     setshowindexes(cola ? i : null);
   };
-const {setUser} = useContext(userContext);
-console.log(setUser);
-  useEffect(() => {
-    const addo = { address: "bam", states: "Odisha" };
-    setAdd(addo.address);
-  }, []);
 
   const categoris =
     restaurantmenu[2]?.groupedCard.cardGroupMap?.REGULAR?.cards.filter((c) => {
@@ -69,14 +61,12 @@ console.log(setUser);
       <div className="w-full">
         {categoris &&
           categoris.map((info, i) => (
-            <userContext.Provider value={{ add, setUser }}>
-              <RestarurantCategory
-                category={info?.card?.card}
-                key={info?.card?.card?.title}
-                setshowindexes={() => setshowindexeshandler(i)}
-                showitmes={i === showindex ? true : false}
-              />
-            </userContext.Provider>
+            <RestarurantCategory
+              category={info?.card?.card}
+              key={info?.card?.card?.title}
+              setshowindexes={() => setshowindexeshandler(i)}
+              showitmes={i === showindex ? true : false}
+            />
           ))}
       </div>
     </div>
