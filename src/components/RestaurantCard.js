@@ -23,8 +23,8 @@ const RestaurantCard = ({ cloudinaryImageId, avgRating, cuisines, name }) => {
         <h4 className="font-bold text-green-600">
           <i className="fas fa-star"></i> {avgRating}⭐
         </h4>
-        <p>{username}</p>
-        <p>{email}</p>
+     {/*    <p>{username}</p>
+        <p>{email}</p> */}
       </div>
     </div>
   );
@@ -34,7 +34,7 @@ export const withPromote = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
-        <span className=" bg-black text-gray-50 rounded-md">Promote</span>
+        <span className=" bg-black text-gray-50 rounded-md">Promoted</span>
         <RestaurantCard {...props} />
       </div>
     );

@@ -89,7 +89,7 @@ const Body = () => {
       </div>
       <div></div>
       <FoodGallery />
-      <input
+      {/* <input
         type="text"
         placeholder="edit it"
         onChange={(e) => setUser(e.target.value)  }
@@ -101,7 +101,7 @@ const Body = () => {
         onChange={(e) => setEmail(e.target.value)  }
         value={email}
       />
-      <label htmlFor="">context</label>
+      <label htmlFor="">context</label> */}
 
       <div className="flex flex-wrap items-center mb-10 justify-center ">
         {filterrestaurantconst.map((restaurant) => (

@@ -1,9 +1,17 @@
 import React from "react";
 import { cloudinaryImageId } from "../constant";
+import { useContext } from "react";
+import userContext from "../utils/userContext";
+
+
 const ItemList = ({ list }) => {
-  console.log(list);
+  const {user, setUser} = useContext(userContext);
+  console.log(setUser);
+  
+
   return (
     <div className="flex justify-start w-full">
+      
       <ul>
         {list.map((cat) => (
           <li key={cat?.card?.info?.id}>
@@ -30,7 +38,9 @@ const ItemList = ({ list }) => {
               </button>
             </div>
             <hr className="mt-6 mb-6 border border-b-4 border-b-slate-300" />
+            
           </li>
+          
         ))}
       </ul>
     </div>

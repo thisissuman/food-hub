@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { restaurantList } from "../constant";
 import { useDispatch } from "react-redux";
@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useParams } from "react-router-dom";
 import RestarurantCategory from "./RestarurantCategory";
+import userContext from "../utils/userContext";
 
 const RestauRantMenu = () => {
   const dispatch = useDispatch();
@@ -14,11 +15,18 @@ const RestauRantMenu = () => {
   const restaurantmenu = useRestaurantMenu(id);
   const [showindex, setshowindexes] = useState(0);
   const [cola, setcola] = useState(false);
-
+  const [add, setAdd] = useState({});
   const setshowindexeshandler = (i) => {
-    setcola(!cola)
-    setshowindexes(cola ? i : null)
+    setcola(!cola);
+    setshowindexes(cola ? i : null);
   };
+const {setUser} = useContext(userContext);
+console.log(setUser);
+  useEffect(() => {
+    const addo = { address: "bam", states: "Odisha" };
+    setAdd(addo.address);
+  }, []);
+
   const categoris =
     restaurantmenu[2]?.groupedCard.cardGroupMap?.REGULAR?.cards.filter((c) => {
       // console.log(c?.card?.card["@type"]);
@@ -61,12 +69,14 @@ const RestauRantMenu = () => {
       <div className="w-full">
         {categoris &&
           categoris.map((info, i) => (
-            <RestarurantCategory
-              category={info?.card?.card}
-              key={info?.card?.card?.title}
-              setshowindexes={() => setshowindexeshandler(i)}
-              showitmes={i === showindex ? true : false}
-            />
+            <userContext.Provider value={{ add, setUser }}>
+              <RestarurantCategory
+                category={info?.card?.card}
+                key={info?.card?.card?.title}
+                setshowindexes={() => setshowindexeshandler(i)}
+                showitmes={i === showindex ? true : false}
+              />
+            </userContext.Provider>
           ))}
       </div>
     </div>

@@ -107,8 +107,8 @@ const Header = () => {
               Cart-{cartItems.length}
             </Link>
           </li>
-          <p>{username}</p>
-          <p>{email}</p>
+         {/*  <p>{username}</p>
+          <p>{email}</p> */}
         </ul>
       </div>
     </div>
