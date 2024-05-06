@@ -52,7 +52,7 @@ const Body = () => {
     </div>
   ) : (
     <>
-      <div className="p-5  my-5 px-50 flex items-center justify-center">
+      <div className="p-5  my-5 px-50 flex items-center justify-center" >
         <div className="border outline-neutral-400 rounded-lg p-2  mr-10 focus:bg-yellow-50 w-1/2 flex scale-105">
           <Search className="pr-2" />
           <input

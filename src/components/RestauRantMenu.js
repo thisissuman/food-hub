@@ -18,37 +18,37 @@ const RestauRantMenu = () => {
     setcola(!cola);
     setshowindexes(cola ? i : null);
   };
-
   const categoris =
-    restaurantmenu[2]?.groupedCard.cardGroupMap?.REGULAR?.cards.filter((c) => {
-      // console.log(c?.card?.card["@type"]);
-      return (
-        c?.card?.card["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-      );
-    });
+  restaurantmenu[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => {
+    // console.log(c?.card?.card["@type"]);
+    return (
+      c?.card?.card["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  });
+  console.log(restaurantmenu[4]?.groupedCard?.cardGroupMap);
 
   return (
     <div className="px-28 py-10 border rounded-lg shadow-lg flex flex-col items-start space-y-5">
       <h1 className="text-xl font-bold">
-        {restaurantmenu[0]?.card?.card?.info?.name}
+        {restaurantmenu[0]?.card?.card?.text}
       </h1>
       <div className="flex justify-between w-full">
         <div>
-          <p>{restaurantmenu[0]?.card?.card?.info?.cuisines}</p>
-          <p>{restaurantmenu[0]?.card?.card?.info?.areaName}</p>
+          <p>{restaurantmenu[2]?.card?.card?.info?.cuisines}</p>
+          <p>{restaurantmenu[2]?.card?.card?.info?.areaName}</p>
         </div>
         <div className="text-green-500 font-bold text-lg">
-          ⭐{restaurantmenu[0]?.card?.card?.info?.avgRating}
+          ⭐{restaurantmenu[2]?.card?.card?.info?.avgRating}
         </div>
       </div>
 
       <div className="flex justify-between w-full">
-        <p>⌛{restaurantmenu[0]?.card?.card?.info?.sla?.slaString}</p>
-        <p>💲{restaurantmenu[0]?.card?.card?.info?.costForTwoMessage}</p>
+        <p>⌛{restaurantmenu[2]?.card?.card?.info?.sla?.slaString}</p>
+        <p>💲{restaurantmenu[2]?.card?.card?.info?.costForTwoMessage}</p>
       </div>
 
-      {restaurantmenu[0]?.card?.card?.info?.veg ? (
+      {restaurantmenu[2]?.card?.card?.info?.veg ? (
         <span className="bg-green-500 text-white px-2 py-1 rounded">
           🥕 PURE VEG
         </span>

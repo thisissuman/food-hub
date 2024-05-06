@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import userContext from "../utils/userContext";
@@ -33,9 +33,16 @@ const Header = () => {
   const isOnline = useOnline();
 
   const [login, setlogin] = useState(true);
+
+
+
+  useEffect(() => {
+    console.log(cartItems.length);
+  }, [cartItems.length])
+  
   return (
     <div
-      className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50 m-0 p-0 h-22"
+      className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50 m-0 p-0 h-22 "
       style={{
         backgroundImage: `url(${foodtexture})`,
         backgroundSize: "cover", // Ensure the image covers the entire div
@@ -98,7 +105,7 @@ const Header = () => {
               )}
             </Link>
           </li>
-          <li className="px-2 text-slate-600 text-xl  font-custom bg-amber-500 rounded-md">
+          <li className={`px-2 text-slate-600 text-xl  font-custom bg-amber-500 rounded-md ${cartItems.length > 0 ? 'scale-110 animate-bounce ' : ""}`}>
             <Link
               data-testid="cartitem"
               to="/cart"

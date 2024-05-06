@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
 const RestaurantCard = ({ cloudinaryImageId, avgRating, cuisines, name }) => {
+  
   return (
     <div className="w-56 h-96 p-2 m-2 shadow-lg bg-pink-50 transform transition duration-500 ease-in-out hover:scale-105 hover:shadow-2xl">
       <img
